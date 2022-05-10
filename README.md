@@ -85,6 +85,8 @@ git config --global user.name "John Doe"
 git config --global user.email johndoe@example.com
 ```
 
+---
+
 ### SSH
 
 Add SSH to connect to GitHub without entering the username and password.
@@ -104,6 +106,8 @@ Add the ssh key to the ssh agent:
 ```shell
 ssh-add ~/.ssh/id_ed25519
 ```
+
+---
 
 ### GPG
 
@@ -149,6 +153,8 @@ gpg --armor --export GPG-KEY-ID
 
 Now we add the gpg key pair to github in the browser under your settings page.
 
+---
+
 ### GPG & VS-Code
 
 If you use WSL in combination with VS-Code, you need to setup the GPG pinentry dialog for Windows.
@@ -179,6 +185,8 @@ Restart the gpg agent:
 gpgconf --kill gpg-agent
 ```
 
+---
+
 ### Keychain
 
 We use the Keychain to save the passphrase to our SSH key, so we don't have to type it with every git command.
@@ -203,6 +211,8 @@ hs=`hostname`
 source $HOME/.keychain/$hs-sh
 ### End-Keychain ###
 ```
+
+---
 
 ### GitHub CLI
 
