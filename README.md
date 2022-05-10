@@ -149,6 +149,36 @@ gpg --armor --export GPG-KEY-ID
 
 Now we add the gpg key pair to github in the browser under your settings page.
 
+### GPG & VS-Code
+
+If you use WSL in combination with VS-Code, you need to setup the GPG pinentry dialog for Windows.
+
+Install the simple installer of the current GnuPG:
+
+[GnuPG - Download Page](https://www.gnupg.org/download/index.html)
+
+[GnuPG - Direct Download Link v.2.3.6](https://www.gnupg.org/ftp/gcrypt/binary/gnupg-w32-2.3.6_20220425.exe)
+
+Edit the gpg-agent config so it shows the pinentry dialog in Windows:
+
+```shell
+nano ~/.gnupg/gpg-agent.conf
+```
+
+Paste the following inside:
+
+```shell
+default-cache-ttl 34560000
+max-cache-ttl 34560000
+pinentry-program "/mnt/c/Program Files (x86)/gnupg/bin/pinentry-basic.exe"
+```
+
+Restart the gpg agent:
+
+```shell
+gpgconf --kill gpg-agent
+```
+
 ### Keychain
 
 We use the Keychain to save the passphrase to our SSH key, so we don't have to type it with every git command.
