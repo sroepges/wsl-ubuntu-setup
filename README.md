@@ -2,10 +2,10 @@
 
 ## Install WSL
 
-Open the Powsershell and type:
+Open the Powsershell and run the following command:
 
 ```shell
-wsl --install -d Ubuntu
+wsl --install
 ```
 
 ## Update & Upgrade script
