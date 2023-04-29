@@ -204,12 +204,9 @@ nano ~/.zshrc
 ```
 
 ```shell
-### START-Keychain ###
-hs=`hostname`
-# Let  re-use ssh-agent and/or gpg-agent between logins
+# Keychain
 /usr/bin/keychain $HOME/.ssh/id_ed25519
-source $HOME/.keychain/$hs-sh
-### End-Keychain ###
+source $HOME/.keychain/$HOST-sh
 ```
 
 ---
