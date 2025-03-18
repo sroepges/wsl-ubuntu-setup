@@ -1,113 +1,36 @@
-# wsl-setup
+# wsl-ubuntu-setup
 
 ## Install WSL
 
-Open the Powsershell and run the following command:
+Open the Powsershell as admin and run the following command:
 
 ```shell
 wsl --install
 ```
 
-## Update & Upgrade script
+## (Optional) Install Windows Terminal
 
-We start with adding a update script to Linux, so we can simply update the whole system with one command.
+via MS Store:
 
-```shell
-sudo nano /usr/bin/update
-```
+[Windows Terminal](https://apps.microsoft.com/detail/9n0dx20hk701)
 
-The script looks like this:
+via winget:
 
 ```shell
-#!/bin/bash
-
-sudo apt update
-sudo apt upgrade -y
-sudo apt dist-upgrade -y
-sudo apt autoremove -y
+winget install -e --id Microsoft.WindowsTerminal
 ```
 
-Just copy the script with the button in the top right corner and paste it into nano. Press CTRL + X and then Y + ENTER.
-Make the script executable by typing
+[Microsoft Docs](https://learn.microsoft.com/en-us/windows/wsl/install)
+
+## Clone the repo and run the setup script
 
 ```shell
-sudo chmod +x /usr/bin/update
+git clone https://github.com/sroepges/wsl-setup.git &&
+cd wsl-setup &&
+bash run.sh
 ```
 
-Now you can just use the command `update` and type in the admin password.
-
-## Oh My Zsh
-
-First install the zsh shell with the command:
-
-```shell
-sudo apt install zsh -y
-```
-
-Then install ohmyzsh:
-
-```shell
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-```
-
-When asked if you want to with to the zsh shell press Y + ENTER.
-
-## Node Version Manager
-
-First install the node version manager and then install the node lts version.
-
-```shell
-curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
-source ~/.zshrc
-nvm install --lts
-```
-
-Now enable yarn as an alternative to npm.
-
-```shell
-corepack enable
-```
-
-## Git & GitHub
-
-### Git
-
-Install the newest git version:
-
-```shell
-sudo apt install git -y
-```
-
-Add your git credentials to your config file:
-
-```shell
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
-```
-
----
-
-### SSH
-
-Add SSH to connect to GitHub without entering the username and password.
-
-```shell
-ssh-keygen -t ed25519 -C "your_email@example.com"
-```
-
-> Enter a file in which to save the key (/home/you/.ssh/algorithm): **[Press enter]**
->
-> Enter passphrase (empty for no passphrase): **[Type a passphrase]**
->
-> Enter same passphrase again: **[Type passphrase again]**
-
-Add the ssh key to the ssh agent:
-
-```shell
-ssh-add ~/.ssh/id_ed25519
-```
-
----
+## (Optional) Additional setup
 
 ### GPG
 
@@ -183,28 +106,4 @@ Restart the gpg agent:
 
 ```shell
 gpgconf --kill gpg-agent
-```
-
----
-
-### Keychain
-
-We use the Keychain to save the passphrase to our SSH key, so we don't have to type it with every git command.
-
-Install the keychain tool for Ubuntu:
-
-```shell
-sudo apt install keychain
-```
-
-Open the zsh shell config and append the following code:
-
-```shell
-nano ~/.zshrc
-```
-
-```shell
-# Keychain
-/usr/bin/keychain $HOME/.ssh/id_ed25519
-source $HOME/.keychain/$HOST-sh
 ```
