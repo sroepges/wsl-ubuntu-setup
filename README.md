@@ -25,7 +25,7 @@ winget install -e --id Microsoft.WindowsTerminal
 ## Clone the repo and run the setup script
 
 ```shell
-git clone https://github.com/sroepges/wsl-setup.git &&
+git clone https://github.com/sroepges/wsl-ubuntu-setup.git &&
 cd wsl-setup &&
 bash run.sh
 ```
