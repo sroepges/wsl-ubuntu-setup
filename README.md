@@ -8,6 +8,8 @@ Open the Powsershell as admin and run the following command:
 wsl --install
 ```
 
+[Microsoft Docs](https://learn.microsoft.com/en-us/windows/wsl/install)
+
 ## (Optional) Install Windows Terminal
 
 via MS Store:
@@ -19,8 +21,6 @@ via winget:
 ```shell
 winget install -e --id Microsoft.WindowsTerminal
 ```
-
-[Microsoft Docs](https://learn.microsoft.com/en-us/windows/wsl/install)
 
 ## Clone the repo and run the setup script
 
@@ -84,9 +84,9 @@ If you use WSL in combination with VS-Code, you need to setup the GPG pinentry d
 
 Install the simple installer of the current GnuPG:
 
-[GnuPG - Download Page](https://www.gnupg.org/download/index.html)
+[GnuPG - Download Page](https://www.gnupg.org/download/index.html#binary)
 
-[GnuPG - Direct Download Link v.2.3.6](https://www.gnupg.org/ftp/gcrypt/binary/gnupg-w32-2.3.6_20220425.exe)
+[GnuPG - Direct Download Link v.2.4.7](https://www.gnupg.org/ftp/gcrypt/binary/gnupg-w32-2.4.7_20241125.exe)
 
 Edit the gpg-agent config so it shows the pinentry dialog in Windows:
 
